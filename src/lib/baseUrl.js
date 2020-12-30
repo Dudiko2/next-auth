@@ -5,7 +5,7 @@ import logger from './logger'
  * It can also take a url (either URL or a string) and parses it correctly.
  * @returns {URL}
  */
-function baseUrl (url) {
+export default function baseUrl (url) {
   let _url = url || process.env.NEXTAUTH_URL || process.env.VERCEL_URL
   if (typeof _url !== 'string' && !(_url instanceof URL)) {
     throw new Error('baseUrl must be either a valid URL object or a valid string URL')
@@ -26,5 +26,3 @@ function baseUrl (url) {
     return new URL(defaultUrl)
   }
 }
-
-export default baseUrl
